@@ -152,6 +152,8 @@
 <meta property="og:site_name" content="Terry&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/C808C8261FE2459D9B925CEF556BB83B?method=download&shareKey=6cefff581dd31aed946d8753f17599be">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/C808C8261FE2459D9B925CEF556BB83B?method=download&shareKey=6cefff581dd31aed946d8753f17599be">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/FB34B886E1D44111A1210ABDD1790D89?method=download&shareKey=7bbef245bcf4d31f0eb276512107de7c">
 <meta property="og:updated_time" content="2019-07-25T13:38:01.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+GitPages--从0搭建，再也不羡慕别人了！">
@@ -547,7 +549,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  799 字
+                  778 字
                 </span>
               
 
@@ -616,44 +618,28 @@
 <h3 id="选择主题-Next"><a href="#选择主题-Next" class="headerlink" title="选择主题-Next"></a>选择主题-Next</h3><ol>
 <li>在站点根目录输入</li>
 </ol>
-<pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></pre><ol start="2">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
 <li>完成后，打开站点配置文件， 找到theme 字段，把landscape更改为next</li>
-<li>在终端输入<pre><code>hexo clean  //清除缓存
-hexo g  //重新生成代码
-hexo s  //部署到本地
-</code></pre></li>
+<li>在终端输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  //清除缓存</span><br><span class="line">hexo g  //重新生成代码</span><br><span class="line">hexo s  //部署到本地</span><br><span class="line"></span><br><span class="line">//然后打开浏览器访问 localhost:4000 查看效果</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<p>//然后打开浏览器访问 localhost:4000 查看效果</p>
-<pre><code>![image](https://note.youdao.com/yws/api/personal/file/C808C8261FE2459D9B925CEF556BB83B?method=download&amp;shareKey=6cefff581dd31aed946d8753f17599be)
+<p><img src="https://note.youdao.com/yws/api/personal/file/C808C8261FE2459D9B925CEF556BB83B?method=download&shareKey=6cefff581dd31aed946d8753f17599be" alt="image"></p>
+<p>nexT主题有三种选择，这个只是最简洁的一种，我们选择最好看的那个。</p>
+<p>Muse -默认Scheme，这是NexT最初的版本，黑白主调，大量留白<br>Mist - Muse的紧凑版本，整洁有序的单栏外观<br>Pisces -双栏Scheme，小家碧玉似的清新</p>
+<ol start="4">
+<li>配置nexT</li>
+</ol>
+<p>ctrl+f 搜素scheme , 选择pisces<br>然后重新clean，generator，查看效果:<br><img src="https://note.youdao.com/yws/api/personal/file/FB34B886E1D44111A1210ABDD1790D89?method=download&shareKey=7bbef245bcf4d31f0eb276512107de7c" alt="image"></p>
+<h2 id="三-将本地博客上传到GitHub"><a href="#三-将本地博客上传到GitHub" class="headerlink" title="三 将本地博客上传到GitHub"></a>三 将本地博客上传到GitHub</h2><p>因为我们想要的是通过网址访问，所以接下来还要搭到GitHub上</p>
+<p>具体的可以看<br><a href="https://blog.csdn.net/Hoshea_chx/article/details/78826689" target="_blank" rel="noopener">这个博客</a></p>
+<h2 id="四-注意！！！"><a href="#四-注意！！！" class="headerlink" title="四 注意！！！"></a>四 注意！！！</h2><p>在修改Hexo的站点文件时</p>
+<p>冒号的后面一定一定一定要有一个空格！！（大坑）</p>
+<h2 id="五-发布你的第一篇博客"><a href="#五-发布你的第一篇博客" class="headerlink" title="五 发布你的第一篇博客"></a>五 发布你的第一篇博客</h2><p>根目录下输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot;</span><br><span class="line"> //hexo n 也可以 </span><br><span class="line"> //你自己的博客名称，名为postName.md的文件会建在目</span><br><span class="line"> //录/blog/source/_posts下。</span><br><span class="line"></span><br><span class="line">文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</span><br><span class="line"></span><br><span class="line">hexo g //生成静态页面</span><br><span class="line">hexo d //发布</span><br></pre></td></tr></table></figure>
 
-nexT主题有三种选择，这个只是最简洁的一种，我们选择最好看的那个。
-
-Muse -默认Scheme，这是NexT最初的版本，黑白主调，大量留白
-Mist - Muse的紧凑版本，整洁有序的单栏外观
-Pisces -双栏Scheme，小家碧玉似的清新
-
-4.  配置nexT
-
-ctrl+f 搜素scheme , 选择pisces
-然后重新clean，generator，查看效果:
-![image](https://note.youdao.com/yws/api/personal/file/FB34B886E1D44111A1210ABDD1790D89?method=download&amp;shareKey=7bbef245bcf4d31f0eb276512107de7c)
-
-## 三 将本地博客上传到GitHub
-因为我们想要的是通过网址访问，所以接下来还要搭到GitHub上
-
-具体的可以看
-[这个博客](https://blog.csdn.net/Hoshea_chx/article/details/78826689)
-
-## 四 注意！！！
-在修改Hexo的站点文件时
-
-冒号的后面一定一定一定要有一个空格！！（大坑）
-
-## 五 发布你的第一篇博客
-根目录下输入：
-</code></pre><p>hexo new “postName”<br> //hexo n 也可以<br> //你自己的博客名称，名为postName.md的文件会建在目<br> //录/blog/source/_posts下。</p>
-<p>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
-<p>hexo g //生成静态页面<br>hexo d //发布<br>```</p>
 <h2 id="六-后记"><a href="#六-后记" class="headerlink" title="六 后记"></a>六 后记</h2><p>这个只是最简单的博客的搭建，相当于盖房子。盖了一个小木屋，成长为参天大树还需要进一步个性化配置</p>
 </blockquote></blockquote>
       
@@ -1014,7 +1000,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么会想到要自己搭博客呢？"><span class="nav-number">1.</span> <span class="nav-text">为什么会想到要自己搭博客呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建心得"><span class="nav-number">2.</span> <span class="nav-text">搭建心得</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#二-用Hexo在本地搭建一个博客"><span class="nav-number"></span> <span class="nav-text">二  用Hexo在本地搭建一个博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速开始"><span class="nav-number">2.</span> <span class="nav-text">快速开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择主题-Next"><span class="nav-number">3.</span> <span class="nav-text">选择主题-Next</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-后记"><span class="nav-number"></span> <span class="nav-text">六 后记</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么会想到要自己搭博客呢？"><span class="nav-number">1.</span> <span class="nav-text">为什么会想到要自己搭博客呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建心得"><span class="nav-number">2.</span> <span class="nav-text">搭建心得</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#二-用Hexo在本地搭建一个博客"><span class="nav-number"></span> <span class="nav-text">二  用Hexo在本地搭建一个博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速开始"><span class="nav-number">2.</span> <span class="nav-text">快速开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择主题-Next"><span class="nav-number">3.</span> <span class="nav-text">选择主题-Next</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-将本地博客上传到GitHub"><span class="nav-number"></span> <span class="nav-text">三 将本地博客上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-注意！！！"><span class="nav-number"></span> <span class="nav-text">四 注意！！！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-发布你的第一篇博客"><span class="nav-number"></span> <span class="nav-text">五 发布你的第一篇博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-后记"><span class="nav-number"></span> <span class="nav-text">六 后记</span></a></li></div>
             
 
           </div>

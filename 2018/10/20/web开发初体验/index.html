@@ -545,7 +545,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  372 字
+                  411 字
                 </span>
               
 
@@ -586,17 +586,14 @@
              <a id="more"></a>  
 <blockquote class="blockquote-center">
 
-<h2 id="一-自动配置原理"><a href="#一-自动配置原理" class="headerlink" title="一 自动配置原理"></a>一 自动配置原理</h2><h2 id="一-这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？"><a href="#一-这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？" class="headerlink" title="一  这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？"></a>一  这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？</h2><pre><code class="java">xxxAutoconfiguration:帮我们给容器中自动配置组件
-xxxProperties:配置类来封装配置的内容</code></pre>
+<h2 id="一-自动配置原理"><a href="#一-自动配置原理" class="headerlink" title="一 自动配置原理"></a>一 自动配置原理</h2><h2 id="一-这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？"><a href="#一-这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？" class="headerlink" title="一  这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？"></a>一  这个场景springboot帮我们配置了什么？能不能够修改？能修改那些配置？能不能扩展？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxAutoconfiguration:帮我们给容器中自动配置组件</span><br><span class="line">xxxProperties:配置类来封装配置的内容</span><br></pre></td></tr></table></figure>
+
 <h2 id="二-SpringBoot对静态资源的映射规则"><a href="#二-SpringBoot对静态资源的映射规则" class="headerlink" title="二 SpringBoot对静态资源的映射规则"></a>二 SpringBoot对静态资源的映射规则</h2><ol>
 <li><p>所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；</p>
 </li>
 <li><p>“/**” 访问当前项目的任何资源，都去（静态资源的文件夹）找映射</p>
-<pre><code class="java">&quot;classpath:/META‐INF/resources/&quot;,
-&quot;classpath:/resources/&quot;,
-&quot;classpath:/static/&quot;, 
-&quot;classpath:/public/&quot; 
-&quot;/&quot;：当前项目的根路径</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"classpath:/META‐INF/resources/"</span>,</span><br><span class="line"><span class="string">"classpath:/resources/"</span>,</span><br><span class="line"><span class="string">"classpath:/static/"</span>, </span><br><span class="line"><span class="string">"classpath:/public/"</span> </span><br><span class="line"><span class="string">"/"</span>：当前项目的根路径</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>欢迎页； 静态资源文件夹下的所有index.html页面；被”/**”映射；<br>localhost:8080/ 找index页面</li>
 <li>所有的 **/favicon.ico 都是在静态资源文件下找；</li>
@@ -604,40 +601,14 @@ xxxProperties:配置类来封装配置的内容</code></pre>
 </li>
 </ol>
 <h2 id="三-模板引擎Thymeleaf"><a href="#三-模板引擎Thymeleaf" class="headerlink" title="三 模板引擎Thymeleaf"></a>三 模板引擎Thymeleaf</h2><p>jsp/Thymeleaf/FreeMaker/VeloCity</p>
-<h3 id="1-引入Thymeleaf"><a href="#1-引入Thymeleaf" class="headerlink" title="1. 引入Thymeleaf"></a>1. 引入Thymeleaf</h3><pre><code class="xml">&lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-    默认2.16
-        &lt;/dependency&gt;
+<h3 id="1-引入Thymeleaf"><a href="#1-引入Thymeleaf" class="headerlink" title="1. 引入Thymeleaf"></a>1. 引入Thymeleaf</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    默认2.16</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">但是需要更新下Thymeleaf版本，添加</span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.9.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">!‐‐</span> 布局功能的支持程序  <span class="attr">thymeleaf3</span>主程序  <span class="attr">layout2</span>以上版本 ‐‐&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">!‐‐</span> <span class="attr">thymeleaf2</span>   <span class="attr">layout1</span>‐‐&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">thymeleaf‐layout‐dialect.version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">thymeleaf‐layout‐dialect.version</span>&gt;</span>   <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-但是需要更新下Thymeleaf版本，添加
-&lt;properties&gt;
-        &lt;thymeleaf.version&gt;3.0.9.RELEASE&lt;/thymeleaf.version&gt;
-        &lt;!‐‐ 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 ‐‐&gt;
-        &lt;!‐‐ thymeleaf2   layout1‐‐&gt;        
-    &lt;thymeleaf‐layout‐dialect.version&gt;2.2.2&lt;/thymeleaf‐layout‐dialect.version&gt;   &lt;/properties&gt;</code></pre>
 <h3 id="2Thymeleaf使用"><a href="#2Thymeleaf使用" class="headerlink" title="2Thymeleaf使用"></a>2Thymeleaf使用</h3><p><strong>只要我们把HTML页面放在classpath:/templates/xx.html，</strong></p>
 <p><strong>thymeleaf就能自动渲染</strong></p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt; &lt;head&gt;
-    &lt;meta charset=&quot;UTF‐8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;成功！&lt;/h1&gt;
-    &lt;!‐‐th:text 将div里面的文本内容设置为 ‐‐&gt;
-    &lt;div th:text=&quot;${hello}&quot;&gt;这是显示欢迎信息&lt;/div&gt; 
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h2 id="mvc的视图解析器-拦截器"><a href="#mvc的视图解析器-拦截器" class="headerlink" title="mvc的视图解析器/拦截器"></a>mvc的视图解析器/拦截器</h2><pre><code class="xml">&lt;mvc: view-controller path=&quot;/hello&quot; view-name=&quot;success&quot;&gt;
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF‐8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>成功！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">!‐‐th:text</span> 将<span class="attr">div</span>里面的文本内容设置为 ‐‐&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:text</span>=<span class="string">"$&#123;hello&#125;"</span>&gt;</span>这是显示欢迎信息<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    &lt;mvc interceptors&gt;
-        &lt;mvc: interceptor&gt;
-        &lt;mvc :mapping path=&quot;/hello&quot;&gt;
-            &lt;bean&gt;&lt;/bean&gt;
-        &lt;/mvc: interceptor&gt;
-    &lt;/mvc interceptors&gt;</code></pre>
+<h2 id="mvc的视图解析器-拦截器"><a href="#mvc的视图解析器-拦截器" class="headerlink" title="mvc的视图解析器/拦截器"></a>mvc的视图解析器/拦截器</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:</span> <span class="attr">view-controller</span> <span class="attr">path</span>=<span class="string">"/hello"</span> <span class="attr">view-name</span>=<span class="string">"success"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc</span> <span class="attr">interceptors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:</span> <span class="attr">interceptor</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc</span> <span class="attr">:mapping</span> <span class="attr">path</span>=<span class="string">"/hello"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mvc:</span> <span class="attr">interceptor</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc</span> <span class="attr">interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 </blockquote></blockquote>
       
     </div>

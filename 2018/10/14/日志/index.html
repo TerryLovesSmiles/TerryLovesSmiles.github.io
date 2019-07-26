@@ -549,7 +549,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  927 字
+                  989 字
                 </span>
               
 
@@ -611,15 +611,8 @@
 <p><strong>SpringBoot选用的是SLF4J和Logback</strong></p>
 <h2 id="2-Slf4j"><a href="#2-Slf4j" class="headerlink" title="2. Slf4j"></a>2. Slf4j</h2><h3 id="1-Slf4j的使用"><a href="#1-Slf4j的使用" class="headerlink" title="1. Slf4j的使用"></a>1. Slf4j的使用</h3><p><strong>开发的时候调用的是</strong>日志抽象层SLF4J<strong>里面的方法</strong></p>
 <p><strong>使用的时候给系统里导入slf4j的jar和logback的实现jar</strong></p>
-<pre><code class="java">import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(HelloWorld.class);</span><br><span class="line">    logger.info(<span class="string">"Hello World"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class HelloWorld {
-  public static void main(String[] args) {
-    Logger logger = LoggerFactory.getLogger(HelloWorld.class);
-    logger.info(&quot;Hello World&quot;);
-  }
-}</code></pre>
 <p><img src="https://www.slf4j.org/images/concrete-bindings.png" alt="img"> </p>
 <p><strong>深绿色的代表适配层，帮助我们使用除了logback以外的其他的日志实现</strong></p>
 <p>每一个日志的实现框架都有自己的配置文件。</p>
@@ -637,12 +630,8 @@ public class HelloWorld {
 </li>
 </ol>
 <h2 id="3-springBoot日志关系"><a href="#3-springBoot日志关系" class="headerlink" title="3.  springBoot日志关系"></a>3.  springBoot日志关系</h2><p>   SpringBoot使用它来做日志功能</p>
-<pre><code class="xml">   &lt;dependency&gt;
-         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-         &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
-         &lt;version&gt;2.0.5.RELEASE&lt;/version&gt;
-         &lt;scope&gt;compile&lt;/scope&gt;
-       &lt;/dependency&gt;</code></pre>
+   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>   <strong>SpringBoot日志底层依赖关系</strong></p>
 <p>   <img src="https://haha-1257208827.cos.ap-guangzhou.myqcloud.com/SpringBoot%2Fslf4j.png" alt="slf4j"></p>
 <p>   总结：</p>
@@ -659,58 +648,14 @@ public class HelloWorld {
 </ol>
 <p>   <strong>SpringBoot能自动适配所有的日志框架，且底层要使用slf4j+logback的方式来记录日志，引入其他框架的时候，只需要把这个框架依赖的默认日志框架移除掉即可</strong></p>
 <h2 id="4-日志使用"><a href="#4-日志使用" class="headerlink" title="4.日志使用"></a>4.日志使用</h2><h3 id="1-默认配置"><a href="#1-默认配置" class="headerlink" title="1. 默认配置"></a>1. 默认配置</h3><p>   SpringBoot默认帮我们配好了日志</p>
-<pre><code class="java">   public class Springboot03LoggingApplicationTests {
-       //记录器
-       Logger logger = LoggerFactory.getLogger(getClass());
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Springboot03LoggingApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="comment">//记录器</span></span><br><span class="line">    Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line">        <span class="comment">//日志的级别，由低到高的顺序-----&gt;</span></span><br><span class="line">        <span class="comment">//可以调整需要输出得日志级，日志就只会在这个级别以后的高级别生效</span></span><br><span class="line">        logger.trace(<span class="string">"这是trance日志"</span>);</span><br><span class="line">        logger.debug(<span class="string">"这是debug信息"</span>);</span><br><span class="line">        <span class="comment">//SpringBoot默认使用的是info级别</span></span><br><span class="line">        <span class="comment">//没有指定级别的就用默认的级别，也叫root级别</span></span><br><span class="line">        logger.info(<span class="string">"这是info日志"</span>);</span><br><span class="line">        logger.warn(<span class="string">"这是警告日志"</span>);</span><br><span class="line">        logger.error(<span class="string">"这是error日志"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    application.properties中可以修改为   logging.level.cn.edu.zut=trace，</span><br><span class="line">        就会更改输出的级别了</span><br><span class="line">        </span><br><span class="line">        logging.level.cn.edu.zut=trace</span><br></pre></td></tr></table></figure>
 
-       @Test
-       public void contextLoads() {
-           Logger logger = LoggerFactory.getLogger(getClass());
-           //日志的级别，由低到高的顺序-----&gt;
-           //可以调整需要输出得日志级，日志就只会在这个级别以后的高级别生效
-           logger.trace(&quot;这是trance日志&quot;);
-           logger.debug(&quot;这是debug信息&quot;);
-           //SpringBoot默认使用的是info级别
-           //没有指定级别的就用默认的级别，也叫root级别
-           logger.info(&quot;这是info日志&quot;);
-           logger.warn(&quot;这是警告日志&quot;);
-           logger.error(&quot;这是error日志&quot;);
+   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 生成log日志到指定位置,不指定位置在当前项目下生成</span><br><span class="line">#logging.file=D:\\SpringBoot.log</span><br><span class="line">#logging.file=SpringBoot.log</span><br><span class="line"></span><br><span class="line">#在当前磁盘的根路径下创建文件夹，里面使用spring。log作为默认使用文件</span><br><span class="line">logging.path=/Spring/log</span><br><span class="line"></span><br><span class="line">#在控制台输出的日志的格式</span><br><span class="line">logging.pattern.console=</span><br><span class="line"></span><br><span class="line">#指定文件中日志输出的格式</span><br><span class="line">logging.pattern.file=</span><br></pre></td></tr></table></figure>
 
-       }
-
-
-
-       application.properties中可以修改为   logging.level.cn.edu.zut=trace，
-           就会更改输出的级别了
-
-           logging.level.cn.edu.zut=trace
-
-</code></pre>
-<pre><code class="xml">   # 生成log日志到指定位置,不指定位置在当前项目下生成
-   #logging.file=D:\\SpringBoot.log
-   #logging.file=SpringBoot.log
-
-   #在当前磁盘的根路径下创建文件夹，里面使用spring。log作为默认使用文件
-   logging.path=/Spring/log
-
-   #在控制台输出的日志的格式
-   logging.pattern.console=
-
-   #指定文件中日志输出的格式
-   logging.pattern.file=
-</code></pre>
 <p>   <strong>默认的logback日志</strong></p>
 <p>   C:\Users\Lenovo.m2\repository\org\springframework\boot\spring-boot\2.0.5.RELEASE\spring-boot-2.0.5.RELEASE.jar!\org\springframework\boot\logging\logback\base.xml</p>
-<pre><code class="xml">   &lt;included&gt;
-       &lt;include resource=&quot;org/springframework/boot/logging/logback/defaults.xml&quot; /&gt;
-       &lt;property name=&quot;LOG_FILE&quot; value=&quot;${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}&quot;/&gt;
-       &lt;include resource=&quot;org/springframework/boot/logging/logback/console-appender.xml&quot; /&gt;
-       &lt;include resource=&quot;org/springframework/boot/logging/logback/file-appender.xml&quot; /&gt;
-       &lt;root level=&quot;INFO&quot;&gt;
-           &lt;appender-ref ref=&quot;CONSOLE&quot; /&gt;
-           &lt;appender-ref ref=&quot;FILE&quot; /&gt;
-       &lt;/root&gt;
-   &lt;/included&gt;</code></pre>
+   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">included</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">include</span> <span class="attr">resource</span>=<span class="string">"org/springframework/boot/logging/logback/defaults.xml"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"LOG_FILE"</span> <span class="attr">value</span>=<span class="string">"$&#123;LOG_FILE:-$&#123;LOG_PATH:-$&#123;LOG_TEMP:-$&#123;java.io.tmpdir:-/tmp&#125;&#125;&#125;/spring.log&#125;"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">include</span> <span class="attr">resource</span>=<span class="string">"org/springframework/boot/logging/logback/console-appender.xml"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">include</span> <span class="attr">resource</span>=<span class="string">"org/springframework/boot/logging/logback/file-appender.xml"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"INFO"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"CONSOLE"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"FILE"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">included</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>   <strong>起的xml文件名叫</strong></p>
 <p>   logback.xml  ：就直接被日志框架识别了</p>
 <p>   logback-spring.xml:日志框架就不能直接加载日志的配置项，由springBoot解析日志配置，可以使用springboot的高级profile功能</p>
